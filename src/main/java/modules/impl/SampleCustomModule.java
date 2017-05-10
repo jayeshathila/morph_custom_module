@@ -1,9 +1,9 @@
 package modules.impl;
 
 
-import actions.Action;
-import actions.impl.GoToFlowAction;
-import modules.Module;
+import morph.base.actions.Action;
+import morph.base.actions.impl.GoToFlowAction;
+import morph.base.modules.Module;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
