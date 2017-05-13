@@ -14,7 +14,7 @@ import java.util.List;
  * on 24/04/17.
  */
 @Service
-public class SampleCustomModule implements Module {
+public class SamplePublishCustomModule implements Module {
 
     @Override
     public String getModuleName() {
