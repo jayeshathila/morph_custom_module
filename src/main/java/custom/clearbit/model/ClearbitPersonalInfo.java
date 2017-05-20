@@ -1,9 +1,12 @@
 package custom.clearbit.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * Created by jayeshathila
  * on 20/05/17.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ClearbitPersonalInfo {
 
     Geo geo;

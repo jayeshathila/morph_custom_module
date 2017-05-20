@@ -10,11 +10,9 @@ import morph.base.beans.variables.BotContext;
 import morph.base.modules.Module;
 import org.springframework.stereotype.Service;
 
-import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +27,7 @@ public class FetchPersonalDetailFromEmailCustomModule implements Module {
     private static final String CLEARBIT_API_KEY = "sk_491946ed89030717a1f0b072fe8b4a94";
     private static final String clearbitPath = "https://person.clearbit.com/v1/people/email/";
 
-    private final GenericRestConnector genericRestConnector = new GenericRestConnector();
+    private static final GenericRestConnector genericRestConnector = new GenericRestConnector();
 
 
     @Override
@@ -44,9 +42,9 @@ public class FetchPersonalDetailFromEmailCustomModule implements Module {
             return Collections.emptyList();
         }
 
-        WebTarget webTargetForUrl = genericRestConnector.getWebTargetForUrl(clearbitPath);
+        WebTarget webTargetForUrl = genericRestConnector.getWebTargetForUrl(clearbitPath + emailId.get());
         Invocation.Builder requestBuilder = webTargetForUrl.request(MediaType.APPLICATION_JSON_TYPE);
-        requestBuilder.header("Authorization", "Bearer: " + CLEARBIT_API_KEY);
+        requestBuilder.header("Authorization", "Bearer " + CLEARBIT_API_KEY);
         ClearbitPersonalInfo clearbitPersonalInfo = genericRestConnector.get(requestBuilder, ClearbitPersonalInfo.class);
 
         if (clearbitPersonalInfo == null || clearbitPersonalInfo.getGeo() == null) {
