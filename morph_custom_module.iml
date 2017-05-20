@@ -40,5 +40,6 @@
     <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-jaxrs:1.9.13" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jackson:jackson-xc:1.9.13" level="project" />
     <orderEntry type="library" name="Gradle: org.jsoup:jsoup:1.5.2" level="project" />
+    <orderEntry type="library" name="morph_custom_module_jar-1.0-SNAPSHOT1" level="project" />
   </component>
 </module>
